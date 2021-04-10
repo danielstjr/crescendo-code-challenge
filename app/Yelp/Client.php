@@ -21,6 +21,8 @@ class Client
     /** @var array Header information for every request */
     private $headers;
 
+    public const BUSINESS_ADDRESS = '9520 Metcalf Ave Overland Park, KS 66212';
+
     /** @var string ID of Jack Stack BBQ, the restaurant I've selected for this coding challenge */
     private const BUSINESS_ID = 'ieI6wjZZXti4x5bZ3DEyXg';
 
@@ -40,11 +42,11 @@ class Client
     /**
      * Get the reviews for the given business ID, or use the Jack Stack BBQ ID
      *
-     * @param string|null $businessId
+     * @param string|null $businessId Business ID to override the Jack Stack BBQ ID
      * @return ResponseInterface
      * @throws GuzzleException
      */
-    public function getReviews($businessId = null)
+    public function getReviews($businessId = null): ResponseInterface
     {
         $businessId = $businessId ?? self::BUSINESS_ID;
 
